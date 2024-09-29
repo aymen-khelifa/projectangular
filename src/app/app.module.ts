@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ListCategoriesComponent } from './list-categories/list-categories.component';
+import { FilterPipe } from './filter.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ListCategoriesComponent } from './list-categories/list-categories.compo
     FooterComponent,
     HomeComponent,
     ListCategoriesComponent,
+    FilterPipe,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
