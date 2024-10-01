@@ -10,7 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ListCategoriesComponent } from './list-categories/list-categories.component';
 import { FilterPipe } from './filter.pipe';
 import { HighlightDirective } from './highlight.directive';
-
+import { NotfoundComponent } from './notfound/notfound.component';
+import { ProductModule } from './product/product.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +21,12 @@ import { HighlightDirective } from './highlight.directive';
     ListCategoriesComponent,
     FilterPipe,
     HighlightDirective,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

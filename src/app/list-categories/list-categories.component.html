@@ -6,10 +6,10 @@
 
       <div *ngIf="!title || c.title.toLowerCase().includes(title.toLowerCase())" class="col-md-4" style="margin-bottom: 20px;" >
            <img [src]="c.image" [alt]="c.title" class="img-fluid h-50 w-75" (click)="afficheDescription(c.id)">
-           <h3>{{c.title | uppercase}}</h3>
-           <button class="btn btn-primary" *ngIf="c.available">Voir produits</button>
+           <h3 appHighlight>{{c.title | uppercase}}</h3>
+           <button class="btn btn-primary" *ngIf="c.available" [routerLink]="['/product/',c.id]">Voir produits</button>
            <!-- <button class="btn btn-primary" [hidden]="c.available == false">Voir produits</button>-->
-           <p *ngIf="c.available == false"> Categorie non disponible </p>
+           <p appHighlight *ngIf="c.available == false"> Categorie non disponible </p>
 
        </div>
       </ng-container>
