@@ -1,4 +1,32 @@
 
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <h3 appHighlight>Survolez-moi pour voir la surbrillance !</h3>
+    <input
+      type="text"
+      id="search"
+      class="form-control rounded-pill shadow-sm"
+      name="filter"
+      placeholder="Rechercher un categorie ..."
+      [(ngModel)]="title" #i
+    /><div>
+      <br/>
+    </div>
+      <button  class="form-control rounded-pill " (click)="changeTest()">changeTest</button>
+      <ng-container *ngFor="let c of categories | filter:title">
+          <div class="col-md-4">
+      <!-- <div *ngIf="title.toLowerCase() == c.title.toLowerCase() || title == ''" class="col-md-4" style="margin-bottom: 20px;"> -->
+      <label >{{test}}</label>
+        <app-category [data]="c" [title]="test" (dataEmitter)="DeleteChild($event)"></app-category>
+      </div>
+      </ng-container>
+
+      <div class="row">
+          <app-test #child></app-test>
+         {{child.test}}
+      </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
         Search : <input class="form-control" style="margin-bottom: 30px" name="title" [(ngModel)]="title" placeholder="Rechercher une catégorie" >
@@ -8,7 +36,7 @@
            <img [src]="c.image" [alt]="c.title" class="img-fluid h-50 w-75" (click)="afficheDescription(c.id)">
            <h3 appHighlight>{{c.title | uppercase}}</h3>
            <button class="btn btn-primary" *ngIf="c.available" [routerLink]="['/product/',c.id]">Voir produits</button>
-           <!-- <button class="btn btn-primary" [hidden]="c.available == false">Voir produits</button>-->
+           <!--  <button class="btn btn-primary" [hidden]="c.available == false">Voir produits</button>-->
            <p appHighlight *ngIf="c.available == false"> Categorie non disponible </p>
 
        </div>

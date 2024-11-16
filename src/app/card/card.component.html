@@ -1,0 +1,64 @@
+<div class="card shadow-sm h-100">
+  <img
+    [src]="data.image"
+    [alt]="data.name"
+    class="card-img-top product-image"
+  />
+  <div class="card-body">
+    <h5
+      class="card-title text-center text-primary"
+      [ngClass]="data.nb_likes >= 10 ? 'clignote' : ''"
+    >
+      {{ data.name }}
+    </h5>
+    <p class="card-text text-center text-success fw-bold">
+      {{ data.price | currency: 'TND':'symbol':'1.0-0' }}
+    </p>
+    <p class="card-text text-center">
+      <span class="badge bg-info text-dark me-2">Likes: {{ data.nb_likes }}</span>
+      <span class="badge bg-secondary">Quantité: {{ data.quantity }}</span>
+    </p>
+  </div>
+  <div class="card-footer d-flex flex-column align-items-center">
+    <!-- Buttons for Like and Buy, side by side -->
+    <div class="d-flex w-75 justify-content-between">
+      <button
+        type="button"
+        class="btn btn-outline-primary w-50 me-1"
+        (click)="increment()"
+      >
+        Like
+      </button>
+      <div class="w-50">
+        <button
+          *ngIf="data.quantity == 0; else elseBlock"
+          type="button"
+          class="btn btn-outline-danger w-100"
+          disabled
+        >
+          Out of Stock
+        </button>
+        <ng-template #elseBlock>
+          <button
+            type="button"
+            class="btn btn-outline-success w-100"
+            (click)="buy()"
+          >
+            Buy
+          </button>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Add to shortList Button, below the Like and Buy buttons -->
+    <div class="w-75 mt-2">
+      <button
+        type="button"
+        class="btn btn-outline-success w-100"
+        (click)="addToShortlist()"
+      >
+        Add to shortList
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,19 @@
-<p>productscomponent works!{{this.id}}
-</p>
+
 <div class="container">
   <div class="row">
     <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let product of listProducts">
       <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75">
       <h3>{{product.name}}</h3>
       <h3>{{product.price}}</h3>
+      <h3>{{product.quantity}}</h3>
+      <h3>{{product.nb_likes}}</h3>
+      <div class="col-6">
+        <button *ngIf="product.quantity== 0;else elseBlock" type="button" class="btn btn-outline-secondary" (click)="increment(product)" >likes</button>
+     <ng-template #elseBlock>
+        <button type="button"  class="btn btn-outline-secondary" (click)="buy(product)"  (addToShortlistEvent)="addToShortlist($event)">Buy</button>
+     </ng-template>
+     </div>
     </div>
-    </div>
+    </div><p>productscomponent works!{{this.id}}
+</p>
    </div>

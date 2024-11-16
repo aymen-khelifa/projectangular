@@ -12,6 +12,14 @@ import { FilterPipe } from './filter.pipe';
 import { HighlightDirective } from './highlight.directive';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductModule } from './product/product.module';
+import { ProductscomponentComponent } from './product/productscomponent/productscomponent.component';
+import { FormCategorieComponent } from './Components/form-categorie/form-categorie.component';
+import { FormUserComponent } from './form-user/form-user.component';
+import { UserComponent } from './user/user.component';
+import { MainuserComponent } from './profile/mainuser/mainuser.component';
+import { TestComponent } from './test/test.component';
+import { CategoryComponent } from './category/category.component';
+import { CardComponent } from './card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,11 +30,17 @@ import { ProductModule } from './product/product.module';
     FilterPipe,
     HighlightDirective,
     NotfoundComponent,
+    FormCategorieComponent,
+    FormUserComponent,
+    UserComponent,
+    MainuserComponent,
+    CategoryComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,ProductModule
+    FormsModule,ProductModule,TestComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
